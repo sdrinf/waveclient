@@ -12,7 +12,9 @@ import webbrowser
 def viewwave(wid):
 	print "rendering "+wid
 	w = WaveReader()
-	w.read(wid)
+	if not w.read(wid):
+		print "Wave is not accessible, or not public"
+		return
 	w.render()
 	(h,fn) = tempfile.mkstemp(".html","wave")
 	os.write(h,w.renderedHTML.encode("UTF8"))
@@ -22,7 +24,9 @@ def viewwave(wid):
 
 def showcode(wid):
 	w = WaveReader()
-	w.read(wid)
+	if not w.read(wid):
+		print "Wave is not accessible, or not public"
+		return
 	code = w.get_root_text()
 	code = code.replace("\n","\r\n")
 	print code
