@@ -7,7 +7,7 @@ import os
 import sys
 import tempfile
 from wirewave import WaveReader
-
+import webbrowser
 
 def viewwave(wid):
 	print "rendering "+wid
@@ -17,7 +17,7 @@ def viewwave(wid):
 	(h,fn) = tempfile.mkstemp(".html","wave")
 	os.write(h,w.renderedHTML.encode("UTF8"))
 	os.close(h)
-	os.startfile(fn)
+	webbrowser.open_new_tab(fn)
 	pass
 
 def showcode(wid):
