@@ -1,1 +1,0 @@
-# Google Wave client

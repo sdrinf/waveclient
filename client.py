@@ -3,7 +3,7 @@
 import os
 import sys
 import tempfile
-from waveclient.wirewave import WaveReader
+from wirewave import WaveReader
 
 
 def viewwave(wid):
