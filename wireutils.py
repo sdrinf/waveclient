@@ -3,6 +3,7 @@
 # Copyright @ 2009, Waverz.com - BSD license - Information wants to be free!
 
 # misc utilities
+import logging
 
 def webrequest(method, host, url, headers, payload):
     """Request an HTTPS page, either via the appengine api, or using httplib"""
@@ -18,6 +19,7 @@ def webrequest(method, host, url, headers, payload):
         connection.close()
         return http_data
 
+    print method+" "+host+url
     if (isinstance(payload, dict)):
         payload = urllib.urlencode(payload)
     if ((method == "POST")) & (not ("Content-Type" in headers)):
