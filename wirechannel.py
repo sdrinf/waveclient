@@ -102,7 +102,7 @@ class WaveChannel():
                 try:
                     cobj = simplejson.loads(cpacket)
                     break # packet is finished, and readable
-                except simplejson.decoder.JSONDecodeError, e:
+                except:
                     # there is probably more to it
                     cline = self.process_readline(http_response).strip()
                     # print "+reading: "+str(cline)
